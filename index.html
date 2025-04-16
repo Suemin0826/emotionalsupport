@@ -1,21 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emotional Support Console</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="main-container">
-    <h1>Emotional Support Console</h1>
-    <div class="button-container">
-      <button class="action-button" onclick="startBreathing()">Start Breathing</button>
-      <button class="action-button" onclick="playVoiceLine()">Start Voice</button>
-      <button class="action-button" onclick="playGroundingEffect()">Start Grounding Effect</button>
-    </div>
-  </div>
-  
-  <script src="app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Stable</title>
+    <!-- Pixel-style font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #0d1117;
+        color: #00ff99;
+        font-family: 'Press Start 2P', cursive;
+        text-align: center;
+      }
+
+      h1 {
+        margin-top: 60px;
+        font-size: 20px;
+      }
+
+      button {
+        font-family: 'Press Start 2P', cursive;
+        background-color: #00ff99;
+        color: #0d1117;
+        border: none;
+        padding: 20px;
+        margin: 40px auto;
+        display: block;
+        font-size: 12px;
+        cursor: pointer;
+        border-radius: 12px;
+        box-shadow: 0 0 10px #00ff99;
+        transition: transform 0.2s ease;
+      }
+
+      button:hover {
+        transform: scale(1.1);
+      }
+
+      .breathing-circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin: 40px auto;
+        background-color: #00ff99;
+        animation: breathe 6s ease-in-out infinite;
+      }
+
+      @keyframes breathe {
+        0% { transform: scale(1); opacity: 0.7; }
+        50% { transform: scale(1.5); opacity: 1; }
+        100% { transform: scale(1); opacity: 0.7; }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>WELCOME TO STABLE CONSOLE</h1>
+    <div class="breathing-circle"></div>
+    <button onclick="startBreathing()">START BREATHING</button>
+
+    <script>
+      function startBreathing() {
+        alert("Deep breath in... and out. You got this 💚");
+        // You can also redirect to a dedicated breathing animation page later
+      }
+    </script>
+  </body>
 </html>
