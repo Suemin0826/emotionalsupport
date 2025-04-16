@@ -2,15 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project Stable</title>
-    <!-- Pixel-style font -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Project Stable Console</title>
+    <!-- 픽셀 느낌 Halo-style font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
     <style>
       body {
         margin: 0;
         padding: 0;
         background-color: #0d1117;
+        background-image: radial-gradient(#0d1117, #000000);
         color: #00ff99;
         font-family: 'Press Start 2P', cursive;
         text-align: center;
@@ -21,23 +22,30 @@
         font-size: 20px;
       }
 
+      p {
+        font-size: 10px;
+        color: #7fffd4;
+        margin-bottom: 40px;
+      }
+
       button {
         font-family: 'Press Start 2P', cursive;
         background-color: #00ff99;
         color: #0d1117;
         border: none;
         padding: 20px;
-        margin: 40px auto;
+        margin: 20px auto;
         display: block;
         font-size: 12px;
         cursor: pointer;
         border-radius: 12px;
-        box-shadow: 0 0 10px #00ff99;
-        transition: transform 0.2s ease;
+        box-shadow: 0 0 15px #00ff99;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
 
       button:hover {
         transform: scale(1.1);
+        box-shadow: 0 0 25px #00ff99;
       }
 
       .breathing-circle {
@@ -54,17 +62,78 @@
         50% { transform: scale(1.5); opacity: 1; }
         100% { transform: scale(1); opacity: 0.7; }
       }
+
+      #hud {
+        padding: 40px;
+        border: 2px solid #00ff99;
+        border-radius: 20px;
+        max-width: 500px;
+        margin: 40px auto;
+        box-shadow: 0 0 20px #00ff99;
+        background-color: rgba(13, 17, 23, 0.85);
+        position: relative;
+      }
+
+      audio {
+        margin-top: 20px;
+        outline: none;
+      }
+
+      .hyrax {
+        width: 48px;
+        height: 48px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        image-rendering: pixelated;
+      }
+
+      .helmet-ui {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('https://i.imgur.com/2nXbtjl.png') center/cover no-repeat; /* Replace with Halo-like HUD overlay */
+        opacity: 0.1;
+        pointer-events: none;
+      }
     </style>
   </head>
   <body>
-    <h1>WELCOME TO STABLE CONSOLE</h1>
-    <div class="breathing-circle"></div>
-    <button onclick="startBreathing()">START BREATHING</button>
+    <div class="helmet-ui"></div>
+    <div id="hud">
+      <h1>STABLE CONSOLE</h1>
+      <img src="https://i.imgur.com/Nh0Y7cG.png" class="hyrax" alt="Hyrax" />
+      <p>“IN THE MIDST OF CHAOS, YOU ARE SAFE HERE.”</p>
+      <div class="breathing-circle"></div>
+      <button onclick="startBreathing()">START BREATHING</button>
+      <button onclick="triggerPanic()">PANIC BUTTON</button>
+      <button onclick="toggleAudio()">AUDIO MODE</button>
+      <audio id="comfort-audio" src="your-audio-file.mp3" preload="auto"></audio>
+    </div>
 
     <script>
       function startBreathing() {
         alert("Deep breath in... and out. You got this 💚");
-        // You can also redirect to a dedicated breathing animation page later
+      }
+
+      function triggerPanic() {
+        alert("Panic detected. Activating calming protocol... 🛡️");
+        document.body.style.backgroundImage = "radial-gradient(#0d1117, #1a1a1a)";
+        const circle = document.querySelector(".breathing-circle");
+        circle.style.backgroundColor = "#7fffd4";
+        circle.style.boxShadow = "0 0 20px #7fffd4";
+      }
+
+      function toggleAudio() {
+        const audio = document.getElementById("comfort-audio");
+        if (audio.paused) {
+          audio.play();
+          alert("Now playing: Shannon's soothing nerd babble 🎧");
+        } else {
+          audio.pause();
+        }
       }
     </script>
   </body>
