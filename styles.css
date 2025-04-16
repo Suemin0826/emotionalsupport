@@ -1,0 +1,80 @@
+/* 기본 스타일 */
+body {
+  font-family: 'Arial', sans-serif;
+  background: #0f0f0f; /* 어두운 배경 */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #00ff00; /* Halo 느낌의 전자적인 초록색 */
+  text-align: center;
+}
+
+.main-container {
+  background-color: rgba(0, 0, 0, 0.9); /* 어두운 배경 */
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 255, 0, 0.8); /* 초록색 빛 효과 */
+  width: 80%;
+  max-width: 600px;
+}
+
+h1 {
+  font-size: 3em;
+  color: #00ff00;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00; /* Halo 스타일 텍스트 */
+  letter-spacing: 4px; /* 글자 간격 확대 */
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.action-button {
+  background-color: #0a0a0a;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
+}
+
+.action-button:hover {
+  background-color: #00ff00;
+  color: #0a0a0a;
+  box-shadow: 0 0 25px rgba(0, 255, 0, 1);
+}
+
+.breathing-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #00ff00;
+  margin: 50px auto;
+  animation: breathe 3s ease-in-out infinite;
+  border: 5px solid #0a0a0a;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+}
+
+@keyframes breathe {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
